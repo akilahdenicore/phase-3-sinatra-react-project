@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2022_06_21_204734) do
   end
 
   create_table "strains", force: :cascade do |t|
-    t.string "type"
+    t.string "name"
   end
 
 end
