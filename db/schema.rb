@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_06_21_204734) do
 
   create_table "reviews", force: :cascade do |t|
     t.string "review"
+    t.integer "item_id"
   end
 
   create_table "strains", force: :cascade do |t|

@@ -4,8 +4,43 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do
-    { message: "Good luck with your project!" }.to_json
+    { message: "Godhsshsproject!" }.to_json
   end
-  \
+  get '/strains' do
+    strain = Strain.all
+    strain.to_json(include: {items: {include: :reviews}})
+  end
 
-end
+  get '/strains/:id' do
+    strain = Item.find(params[:id])
+    strain.to_json
+  end
+
+  delete '/strains/:id' do
+    review = Review.find(params[:id])
+    review.destroy
+    review.to_json
+  end
+
+  post '/strains' do
+    review = Review.create(review:params[:review])
+    review.to_json
+
+  end
+
+  patch '/strains/:id' do
+    review = Review.find(params[:id])
+    review.update(
+      review:params[:review]
+    )
+    review.to_json
+  end
+
+
+
+  end
+
+
+
+
+
