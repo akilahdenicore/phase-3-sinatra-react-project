@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2022_06_21_204734) do
     t.string "image"
     t.string "description"
     t.integer "strain_id"
-    t.integer "review_id"
   end
 
   create_table "reviews", force: :cascade do |t|

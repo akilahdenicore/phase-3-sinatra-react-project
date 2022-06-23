@@ -5,15 +5,17 @@ class ApplicationController < Sinatra::Base
   # Add your routes here
   get "/" do
     { message: "Godhsshsproject!" }.to_json
+    type_of_strain = Strain.all
+    type_of_strain.to_json
   end
   get '/strains' do
-    strain = Strain.all
-    strain.to_json(include: {items: {include: :reviews}})
+    strain = Item.all
+    strain.to_json(include: :reviews)
   end
 
   get '/strains/:id' do
     strain = Item.find(params[:id])
-    strain.to_json
+    strain.to_json(include: :reviews)
   end
 
   delete '/strains/:id' do

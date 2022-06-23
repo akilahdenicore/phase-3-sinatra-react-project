@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.string :image
       t.string :description
       t.integer :strain_id
-      t.integer :review_id
+  
     end
   end
 end
